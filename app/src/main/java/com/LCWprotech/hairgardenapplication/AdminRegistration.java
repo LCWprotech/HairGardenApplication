@@ -118,7 +118,7 @@ public class AdminRegistration extends AppCompatActivity {
                                         hashMap1.put("Full Name",name);
                                         hashMap1.put("EmailId",emailid);
                                         hashMap1.put("Password",password);
-                                        hashMap1.put("Pincode",Pincode);
+                                        hashMap1.put("Postcode",Pincode);
                                         hashMap1.put("Gender",gender);
                                         hashMap1.put("Confirm Password",confpassword);
                                         hashMap1.put("Address",Address);

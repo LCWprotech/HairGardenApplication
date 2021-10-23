@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Staff.StaffBottomNavigation"></activity>
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".Customer.CustomerBottomNavigation" />
         <activity android:name=".VerifyPhone" />
         <activity android:name=".AdminForgotPassword" />

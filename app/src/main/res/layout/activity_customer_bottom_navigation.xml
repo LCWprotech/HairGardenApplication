@@ -5,5 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Customer.CustomerBottomNavigation">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Customer"
+        android:textSize="28sp"
+        android:gravity="center_vertical|center_horizontal"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
