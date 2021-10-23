@@ -29,11 +29,10 @@ import java.util.HashMap;
 
 
 public class AdminRegistration extends AppCompatActivity {
-    String[] Perak = {"Ipoh","Taiping","Kampar"};
-    String[] Penang = {"Butterworth","George Town","Perai"};
+
 
     TextInputLayout Name,Email,Pass,cpass,mobileno,address,pincode;
-    Spinner Genderspin,Cityspin;
+    Spinner Genderspin;
     Button signup, Emaill;
     CountryCodePicker Cpp;
     FirebaseAuth FAuth;
@@ -67,23 +66,7 @@ public class AdminRegistration extends AppCompatActivity {
 
                 Object value = parent.getItemAtPosition(position);
                 gender = value.toString().trim();
-                /*
-                if(gender.equals("Male")){
-                    ArrayList<String> list = new ArrayList<>();
-                    for (String cities : Perak){
-                        list.add(cities);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(AdminRegistration.this,android.R.layout.simple_spinner_item,list);
-                    Cityspin.setAdapter(arrayAdapter);
-                }
-                if(gender.equals("Female")){
-                    ArrayList<String> list = new ArrayList<>();
-                    for (String cities : Penang){
-                        list.add(cities);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(AdminRegistration.this,android.R.layout.simple_spinner_item,list);
-                    Cityspin.setAdapter(arrayAdapter);
-                }*/
+
 
             }
 
@@ -95,7 +78,7 @@ public class AdminRegistration extends AppCompatActivity {
 
 
 
-        databaseReference = firebaseDatabase.getInstance().getReference("admin");
+        databaseReference = firebaseDatabase.getInstance().getReference("Admin");
         FAuth = FirebaseAuth.getInstance();
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -161,9 +144,9 @@ public class AdminRegistration extends AppCompatActivity {
 
                                                                     dialog.dismiss();
 
-                                                                    String phonenumber = Cpp.getSelectedCountryCodeWithPlus() + mobile;
-                                                                    Intent b = new Intent(AdminRegistration.this,AdminVerifyPhone.class);
-                                                                    b.putExtra("phonenumber",phonenumber);
+                                                                    //String phonenumber = Cpp.getSelectedCountryCodeWithPlus() + mobile;
+                                                                    Intent b = new Intent(AdminRegistration.this,MainMenu.class);
+                                                                    //b.putExtra("phonenumber",phonenumber);
                                                                     startActivity(b);
 
                                                                 }
@@ -192,11 +175,10 @@ public class AdminRegistration extends AppCompatActivity {
 
             }
         });
-
         Emaill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminRegistration.this,Login.class));
+                startActivity(new Intent(AdminRegistration.this,AdminLogin.class));
                 finish();
             }
         });
