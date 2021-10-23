@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "83678531818",
+    "project_id": "hairgardenapplication",
+    "storage_bucket": "hairgardenapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83678531818:android:33603bc14573bcb340c793",
+        "android_client_info": {
+          "package_name": "com.LCWprotech.hairgardenapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83678531818-26uvtubt8lt0tvqo7n4t5l9ejj982hkh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.LCWprotech.hairgardenapplication",
+            "certificate_hash": "ac4281ae62497379bab4366815f0071bd7dbe6e8"
+          }
+        },
+        {
+          "client_id": "83678531818-6nu587rs113q0o30u60jitrgktcp8e4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQwGdW16m59EV6IjGkgD6413-bPu6blOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83678531818-6nu587rs113q0o30u60jitrgktcp8e4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
