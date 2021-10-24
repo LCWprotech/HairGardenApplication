@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.LCWprotech.hairgardenapplication.Admin.AdminBottomNavigation;
+import com.LCWprotech.hairgardenapplication.Admin.Admin;
 import com.LCWprotech.hairgardenapplication.Customer.Customer;
-import com.LCWprotech.hairgardenapplication.Staff.StaffBottomNavigation;
+import com.LCWprotech.hairgardenapplication.Staff.Staff;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -70,12 +70,12 @@ public class Login extends AppCompatActivity {
 
                                         if(Fauth.getCurrentUser().getEmail().equals("lcwprotech@gmail.com")){
                                             Toast.makeText(Login.this, "Congratulation! You Have Successfully Login", Toast.LENGTH_SHORT).show();
-                                            Intent Z = new Intent(Login.this, AdminBottomNavigation.class);
+                                            Intent Z = new Intent(Login.this, Admin.class);
                                             startActivity(Z);
                                             finish();
                                         }else if(Fauth.getCurrentUser().getEmail().equals("hairgardensalon2014@gmail.com")){
                                             Toast.makeText(Login.this, "Congratulation! You Have Successfully Login", Toast.LENGTH_SHORT).show();
-                                            Intent Z = new Intent(Login.this, StaffBottomNavigation.class);
+                                            Intent Z = new Intent(Login.this, Staff.class);
                                             startActivity(Z);
                                             finish();
                                         }else{
