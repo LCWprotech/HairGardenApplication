@@ -57,7 +57,7 @@ public class Registration extends AppCompatActivity {
         btnSignup = (Button)findViewById(R.id.custSignup);
         btnEmail = (Button)findViewById(R.id.custBtnEmail);
 
-        Cpp = (CountryCodePicker)findViewById(R.id.CountryCode);
+        Cpp = (CountryCodePicker)findViewById(R.id.custCountryCode);
 
         CustGenderspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

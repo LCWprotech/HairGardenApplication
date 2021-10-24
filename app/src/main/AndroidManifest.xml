@@ -16,7 +16,7 @@
         android:theme="@style/Theme.HairGardenApplication">
         <activity android:name=".Staff.StaffBottomNavigation"></activity>
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".Customer.CustomerBottomNavigation" />
+        <activity android:name=".Customer.Customer" />
         <activity android:name=".VerifyPhone" />
         <activity android:name=".AdminForgotPassword" />
         <activity android:name=".Admin.AdminBottomNavigation" />
