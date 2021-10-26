@@ -1,20 +1,36 @@
 package com.LCWprotech.hairgardenapplication;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.LCWprotech.hairgardenapplication.Admin.Admin;
+import com.LCWprotech.hairgardenapplication.Customer.Customer;
+import com.LCWprotech.hairgardenapplication.Staff.Staff;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DatabaseReference;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
     TextView textView;
+    FirebaseAuth Fauth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +59,62 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(MainActivity.this,MainMenu.class);
-                startActivity(intent);
-                finish();
+                Fauth = FirebaseAuth.getInstance();
+                if(Fauth.getCurrentUser()!=null){
+                    if(Fauth.getCurrentUser().isEmailVerified()){
+                        Fauth=FirebaseAuth.getInstance();
+
+                        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getUid()+"/Role");
+                        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String role = snapshot.getValue(String.class);
+                                if(role.equals("Admin")){
+                                    startActivity(new Intent(MainActivity.this, Admin.class));
+                                    finish();
+
+                                }
+                                if(role.equals("Staff")){
+                                    startActivity(new Intent(MainActivity.this, Staff.class));
+                                    finish();
+
+                                }
+                                if(role.equals("Customer")) {
+                                    startActivity(new Intent(MainActivity.this, Customer.class));
+                                    finish();
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(MainActivity.this,error.getMessage(),Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+                    }else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setMessage("Check Whether You Have Verified Your Email, Otherwise Please Verify");
+                        builder.setCancelable(false);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                Intent intent = new Intent(MainActivity.this,MainMenu.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                        Fauth.signOut();
+                    }
+                }else {
+
+                    Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                    startActivity(intent);
+                    finish();
+                }
 
             }
         },3000);
