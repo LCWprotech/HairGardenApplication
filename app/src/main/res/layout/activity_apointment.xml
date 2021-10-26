@@ -16,13 +16,26 @@
         <include
             layout="@layout/main_toolbar"/>
 
-        <TextView
+        <EditText
+            android:hint="SELECT DATE"
+            android:id="@+id/date_input"
+            android:inputType="none"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Appointment"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:hint="SELECT TIME"
+            android:id="@+id/time_input"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:hint="SELECT DATE and Time"
+            android:id="@+id/date_time_input"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <RelativeLayout
