@@ -141,12 +141,8 @@ public class Registration extends AppCompatActivity {
                                                                 public void onClick(DialogInterface dialog, int which) {
 
                                                                     dialog.dismiss();
-
-                                                                    //String phonenumber = Cpp.getSelectedCountryCodeWithPlus() + mobile;
                                                                     Intent b = new Intent(Registration.this,MainMenu.class);
-                                                                    //b.putExtra("phonenumber",phonenumber);
                                                                     startActivity(b);
-
                                                                 }
                                                             });
                                                             AlertDialog Alert = builder.create();

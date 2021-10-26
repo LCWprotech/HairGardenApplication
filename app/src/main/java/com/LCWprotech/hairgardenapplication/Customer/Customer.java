@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.LCWprotech.hairgardenapplication.MainAdapter;
 import com.LCWprotech.hairgardenapplication.R;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class Customer extends AppCompatActivity {
         arrayList.add("Appointment");
         arrayList.add("Hairstyle");
         arrayList.add("Product");
-        arrayList.add("AboutUs");
+        arrayList.add("About Us");
         arrayList.add("Logout");
 
         adapter = new MainAdapter(this, arrayList);

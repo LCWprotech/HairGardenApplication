@@ -1,4 +1,4 @@
-package com.LCWprotech.hairgardenapplication;
+package com.LCWprotech.hairgardenapplication.Customer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.LCWprotech.hairgardenapplication.Customer.Customer;
+import com.LCWprotech.hairgardenapplication.MainMenu;
+import com.LCWprotech.hairgardenapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -47,16 +49,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         activity.startActivity(new Intent(activity, Customer.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 1:
-                        activity.startActivity(new Intent(activity,Appointment.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        activity.startActivity(new Intent(activity, Appointment.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 2:
-                        activity.startActivity(new Intent(activity,Hairstyle.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        activity.startActivity(new Intent(activity, Hairstyle.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 3:
-                        activity.startActivity(new Intent(activity,Product.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        activity.startActivity(new Intent(activity, Product.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 4:
-                        activity.startActivity(new Intent(activity,About.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        activity.startActivity(new Intent(activity, About.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         break;
                     case 5:
                         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -65,9 +67,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                activity.finishAffinity();
-                                System.exit(0);
+                                Logout();
                             }
+                            private void Logout() {
+
+                                FirebaseAuth.getInstance().signOut();
+                                Intent intent = new Intent(activity, MainMenu.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                activity.startActivity(intent);
+                            }
+
+
+
                         });
                         builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                             @Override
@@ -78,6 +89,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         builder.show();
                         break;
                 }
+
+
             }
         });
     }

@@ -55,7 +55,7 @@ public class Login extends AppCompatActivity {
                         final ProgressDialog mDialog = new ProgressDialog(Login.this);
                         mDialog.setCanceledOnTouchOutside(false);
                         mDialog.setCancelable(false);
-                        mDialog.setMessage("Sign In Please Wait.......");
+                        mDialog.setMessage("Logging in, Please Wait.......");
                         mDialog.show();
 
                         Fauth.signInWithEmailAndPassword(emailid,pswd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

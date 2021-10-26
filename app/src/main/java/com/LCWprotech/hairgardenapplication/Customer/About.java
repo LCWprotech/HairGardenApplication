@@ -1,4 +1,4 @@
-package com.LCWprotech.hairgardenapplication;
+package com.LCWprotech.hairgardenapplication.Customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.LCWprotech.hairgardenapplication.Customer.Customer;
+import com.LCWprotech.hairgardenapplication.R;
 
-public class Appointment extends AppCompatActivity {
+public class About extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView btMenu;
     RecyclerView recyclerView;
@@ -20,7 +20,7 @@ public class Appointment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apointment);
+        setContentView(R.layout.activity_about);
         drawerLayout = findViewById(R.id.drawer_layout);
         btMenu = findViewById(R.id.bt_menu);
         recyclerView = findViewById(R.id.recycler_view);
