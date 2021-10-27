@@ -77,8 +77,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                                 activity.startActivity(intent);
                             }
 
-
-
                         });
                         builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                             @Override

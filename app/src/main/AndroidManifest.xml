@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.LCWprotech.hairgardenapplication">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -15,12 +16,25 @@
         android:screenOrientation="sensorPortrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
-        <activity android:name=".Customer.PrivacyPolicy"></activity>
-        <activity android:name=".Customer.About" />
-        <activity android:name=".Customer.Product" />
-        <activity android:name=".Customer.Hairstyle" />
-        <activity android:name=".Customer.Appointment" />
-        <activity android:name=".Customer.MainAdapter" />
+
+        <activity
+            android:name=".Customer.PrivacyPolicy"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Customer.About"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Customer.Product"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Customer.Hairstyle"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Customer.Appointment"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Customer.MainAdapter"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Staff.Staff"
             android:screenOrientation="portrait" />

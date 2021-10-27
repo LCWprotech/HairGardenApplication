@@ -11,17 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.LCWprotech.hairgardenapplication.ForgotPassword;
 import com.LCWprotech.hairgardenapplication.Login;
-import com.LCWprotech.hairgardenapplication.MainMenu;
 import com.LCWprotech.hairgardenapplication.R;
 import com.LCWprotech.hairgardenapplication.Registration;
 
 public class About extends AppCompatActivity {
     TextView txtPrivacy;
+    Button BtnPrivacy;
     DrawerLayout drawerLayout;
     ImageView btMenu;
     RecyclerView recyclerView;
@@ -34,11 +34,24 @@ public class About extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         btMenu = findViewById(R.id.bt_menu);
         recyclerView = findViewById(R.id.recycler_view);
-        txtPrivacy = (TextView) findViewById(R.id.text2);
+        //txtPrivacy = (TextView) findViewById(R.id.text2);
+        BtnPrivacy = (Button) findViewById(R.id.btnPrivacy);
+
+        BtnPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PrivacyPolicy.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(new MainAdapter(this, Customer.arrayList));
+
+        //txtPrivacy.setMovementMethod(LinkMovementMethod.getInstance());
 
         btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,24 +59,10 @@ public class About extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-/*
-        txtPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.startActivity(new Intent(activity, PrivacyPolicy.class));
-                finish();
-            }
-        });*/
 
     }
     protected void onPause(){
         super.onPause();
         Customer.closeDrawer(drawerLayout);
     }
-/*
-    public void Privacy(View v){
-        Intent z = new Intent(activity, Appointment.class);
-        activity.startActivity(z);
-        finish();
-    }*/
 }
