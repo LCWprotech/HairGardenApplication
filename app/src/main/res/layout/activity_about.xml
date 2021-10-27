@@ -17,12 +17,18 @@
             layout="@layout/main_toolbar"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="About Us"
-            android:textSize="50sp"
+            android:id="@+id/txtPrivacy"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="50dp"
+            android:text="Privacy Policy"
+            android:onClick="@+id/Privacy"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"/>
+
+
     </LinearLayout>
 
     <RelativeLayout
