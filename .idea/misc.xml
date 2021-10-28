@@ -4,14 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_about.xml" value="0.1816123188405797" />
-        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_apointment.xml" value="0.1" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_admin.xml" value="0.213768115942029" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_apointment.xml" value="0.16" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_customer.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_login.xml" value="0.22327898550724637" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_product.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_staff.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_admin_appointment.xml" value="0.264" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_admin_product.xml" value="0.21331521739130435" />
-        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_staff_appointment.xml" value="0.21331521739130435" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_staff_appointment.xml" value="0.264" />
       </map>
     </option>
   </component>
