@@ -17,7 +17,7 @@ import com.LCWprotech.hairgardenapplication.R;
 
 public class AdminProductFragment extends Fragment {
 
-    Button BtnPrivacy;
+    Button BtnProduct;
 
     @Nullable
     @Override
@@ -27,12 +27,12 @@ public class AdminProductFragment extends Fragment {
         getActivity().setTitle("Admin Product");
 
 
-        BtnPrivacy = (Button) v.findViewById(R.id.btPrivacy);
+        BtnProduct = (Button) v.findViewById(R.id.btnAddProduct);
 
-        BtnPrivacy.setOnClickListener(new View.OnClickListener() {
+        BtnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PrivacyPolicy.class);
+                Intent intent = new Intent(getContext(), AdminAddProduct.class);
                 startActivity(intent);
             }
         });

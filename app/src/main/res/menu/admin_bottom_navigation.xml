@@ -9,17 +9,17 @@
     <item
         android:id="@+id/adminAppointment"
         android:icon="@drawable/ic_appointment_24"
-        android:title="Pending Orders" />
+        android:title="Appointment" />
 
 
     <item
         android:id="@+id/adminHair"
         android:icon="@drawable/ic_hair_24"
-        android:title="Orders" />
+        android:title="Hairstyle" />
 
 
     <item
         android:id="@+id/adminProduct"
         android:icon="@drawable/ic_product_24"
-        android:title="Post Dish" />
+        android:title="Product" />
 </menu>

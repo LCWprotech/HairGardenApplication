@@ -6,8 +6,7 @@
         <item>Female</item>
     </string-array>
 
-    <string
-        name="privacy"><a href="https://hair-garden.flycricket.io/privacy.html">Privacy Policy</a></string>
+    <string name="privacy"><a href="https://hair-garden.flycricket.io/privacy.html">Privacy Policy</a></string>
 
 
 </resources>
