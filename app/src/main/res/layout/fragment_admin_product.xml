@@ -8,7 +8,7 @@
     tools:context=".Admin.AdminProductFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Recycle_menu"
+        android:id="@+id/adminProductRecycle"
         android:layout_width="match_parent"
         android:layout_height="650dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAddProduct"
