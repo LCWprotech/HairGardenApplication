@@ -12,6 +12,7 @@
     <color name="background">#D5F5E3</color>
     <color name="menucolor">#B92B9B</color>
     <color name="purple">#EBDEF0</color>
+    <color name="colorPrimaryDark">#00574B</color>
     <color name="palepink">#FFDAF3</color>
     <color name="darkpink">#FFC3EC</color>
     <color name="defaultColor">#000000</color>

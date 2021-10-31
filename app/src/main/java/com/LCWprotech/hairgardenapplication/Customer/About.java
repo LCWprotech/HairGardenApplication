@@ -51,7 +51,6 @@ public class About extends AppCompatActivity {
 
         recyclerView.setAdapter(new MainAdapter(this, Customer.arrayList));
 
-        //txtPrivacy.setMovementMethod(LinkMovementMethod.getInstance());
 
         btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
