@@ -1,6 +1,11 @@
 package com.LCWprotech.hairgardenapplication.Staff;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,12 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 import com.LCWprotech.hairgardenapplication.R;
@@ -27,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffProductFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ProductFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     RecyclerView productRecyclerView;
     Animation animation;
@@ -41,8 +40,8 @@ public class StaffProductFragment extends Fragment implements SwipeRefreshLayout
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_staff_product, null);
-        getActivity().setTitle("Staff Product");
+        View v = inflater.inflate(R.layout.fragment_product, null);
+        getActivity().setTitle("Product");
         productRecyclerView = v.findViewById(R.id.recycle_menu);
         productRecyclerView.setHasFixedSize(true);
         animation = AnimationUtils.loadAnimation(getContext(), R.anim.move);

@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.LCWprotech.hairgardenapplication.Admin.Admin;
 import com.LCWprotech.hairgardenapplication.Customer.Customer;
-import com.LCWprotech.hairgardenapplication.Customer.CustomerF;
-import com.LCWprotech.hairgardenapplication.Customer.CustomerHome;
 import com.LCWprotech.hairgardenapplication.Staff.Staff;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 }
                                 if(role.equals("Customer")) {
-                                    startActivity(new Intent(MainActivity.this, CustomerF.class));
+                                    startActivity(new Intent(MainActivity.this, Customer.class));
                                     finish();
                                 }
 

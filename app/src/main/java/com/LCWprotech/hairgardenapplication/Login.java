@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.LCWprotech.hairgardenapplication.Admin.Admin;
 import com.LCWprotech.hairgardenapplication.Customer.Customer;
-import com.LCWprotech.hairgardenapplication.Customer.CustomerF;
 import com.LCWprotech.hairgardenapplication.Staff.Staff;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -81,7 +80,7 @@ public class Login extends AppCompatActivity {
                                             finish();
                                         }else{
                                             Toast.makeText(Login.this, "Congratulation! You Have Successfully Login", Toast.LENGTH_SHORT).show();
-                                            Intent Z = new Intent(Login.this, CustomerF.class);
+                                            Intent Z = new Intent(Login.this, Customer.class);
                                             startActivity(Z);
                                             finish();
                                         }

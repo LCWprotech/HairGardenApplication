@@ -16,9 +16,6 @@
         android:screenOrientation="sensorPortrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
-        <activity
-            android:name=".Customer.CustomerF"
-            android:exported="false" />
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         <activity
             android:name=".Admin.UpdateDeleteProduct"
@@ -29,21 +26,6 @@
         <activity
             android:name=".Customer.PrivacyPolicy"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Customer.About"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Customer.Product"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Customer.Hairstyle"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Customer.Appointment"
-            android:screenOrientation="portrait" />
-        <!--<activity
-            android:name=".Customer.MainAdapter"
-            android:screenOrientation="portrait" />-->
         <activity
             android:name=".Staff.Staff"
             android:screenOrientation="portrait" />

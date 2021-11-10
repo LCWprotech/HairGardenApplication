@@ -43,7 +43,7 @@ public class Staff extends AppCompatActivity implements BottomNavigationView.OnN
                 fragment=new StaffHairstyleFragment();
                 break;
             case R.id.staffProduct:
-                fragment=new StaffProductFragment();
+                fragment=new ProductFragment();
                 break;
         }
         return loadstafffragment(fragment);

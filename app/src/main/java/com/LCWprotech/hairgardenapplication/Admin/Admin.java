@@ -25,19 +25,7 @@ public class Admin extends AppCompatActivity implements BottomNavigationView.OnN
         String name = getIntent().getStringExtra("PAGE");
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        /*if(name!=null){
-            if(name.equalsIgnoreCase("Orderpage")){
-                loadadminfragment(new ChefPendingOrderFragment());
-            }else if(name.equalsIgnoreCase("Confirmpage")){
-                loadadminfragment(new ChefOrderFragment());
-            }else if(name.equalsIgnoreCase("AcceptOrderpage")){
-                loadadminfragment(new ChefOrderFragment());
-            }else if(name.equalsIgnoreCase("Deliveredpage")){
-                loadadminfragment(new ChefOrderFragment());
-            }
-        }else{
-            loadadminfragment(new AdminHomeFragment());
-        }*/
+
         loadadminfragment(new AdminHomeFragment());
     }
 
