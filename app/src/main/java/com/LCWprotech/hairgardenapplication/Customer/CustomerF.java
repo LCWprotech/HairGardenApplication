@@ -22,12 +22,12 @@ public class CustomerF extends AppCompatActivity implements BottomNavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_f);
-        BottomNavigationView navigationView = findViewById(R.id.admin_bottom_navigation);
+        BottomNavigationView navigationView = findViewById(R.id.customer_bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         String name = getIntent().getStringExtra("PAGE");
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        loadadminfragment(new AdminHomeFragment());
+        loadcustomerfragment(new CustomerHome());
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -49,10 +49,10 @@ public class CustomerF extends AppCompatActivity implements BottomNavigationView
                 fragment=new CustomerAbout();
                 break;
         }
-        return loadadminfragment(fragment);
+        return loadcustomerfragment(fragment);
     }
 
-    private boolean loadadminfragment(Fragment fragment) {
+    private boolean loadcustomerfragment(Fragment fragment) {
 
         if (fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();

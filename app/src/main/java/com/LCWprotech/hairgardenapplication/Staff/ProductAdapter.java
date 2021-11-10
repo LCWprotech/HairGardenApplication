@@ -1,4 +1,4 @@
-package com.LCWprotech.hairgardenapplication.Customer;
+package com.LCWprotech.hairgardenapplication.Staff;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,13 +17,13 @@ import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 
 import java.util.List;
 
-public class CustomerProductAdapter extends RecyclerView.Adapter<CustomerProductAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     private Context mcontext;
     private List<UpdateProductModel>updateProductModelList;
     DatabaseReference databaseReference;
 
-    public CustomerProductAdapter(Context context , List<UpdateProductModel>updateProductModelList){
+    public ProductAdapter(Context context , List<UpdateProductModel>updateProductModelList){
 
         this.updateProductModelList = updateProductModelList;
         this.mcontext = context;
@@ -32,13 +32,13 @@ public class CustomerProductAdapter extends RecyclerView.Adapter<CustomerProduct
 
     @NonNull
     @Override
-    public CustomerProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mcontext).inflate(R.layout.customer_menu_product,parent,false);
-        return new CustomerProductAdapter.ViewHolder(view);
+    public ProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mcontext).inflate(R.layout.menu_product,parent,false);
+        return new ProductAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerProductAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
 
         final UpdateProductModel updateProductModel = updateProductModelList.get(position);
         Glide.with(mcontext).load(updateProductModel.getImageURL()).into(holder.imageView);
