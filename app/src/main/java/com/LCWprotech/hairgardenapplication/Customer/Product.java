@@ -44,45 +44,15 @@ public class Product extends AppCompatActivity implements SwipeRefreshLayout.OnR
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_product);
-        //View v = inflater.inflate(R.layout.activity_product, null);
+        setContentView(R.layout.activity_product);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         btMenu = findViewById(R.id.bt_menu);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MainAdapter(this, Customer.arrayList));
-
-        productRecyclerView = v.findViewById(R.id.recycle_menu);
-        productRecyclerView.setHasFixedSize(true);
-        animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
-        productRecyclerView.startAnimation(animation);
-        productRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         updateProductModelList = new ArrayList<>();
-        swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipelayout);
-        swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark,R.color.Red);
-
-        swipeRefreshLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                swipeRefreshLayout.setRefreshing(true);
-                String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                dataa = FirebaseDatabase.getInstance().getReference("Customer").child(userid);
-                dataa.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        customermenu();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
-        return v;
-
+        onCreateView();
         btMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,5 +95,37 @@ public class Product extends AppCompatActivity implements SwipeRefreshLayout.OnR
     protected void onPause(){
         super.onPause();
         Customer.closeDrawer(drawerLayout);
+    }
+    public View onCreateView() {
+        View v = getLayoutInflater().inflate(R.layout.activity_product, null);
+        productRecyclerView = v.findViewById(R.id.recycle_menu);
+        productRecyclerView.setHasFixedSize(true);
+        animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
+        productRecyclerView.startAnimation(animation);
+        productRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipelayout);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark,R.color.Red);
+
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+                String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                dataa = FirebaseDatabase.getInstance().getReference("Customer").child(userid);
+                dataa.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        customermenu();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+        return v;
     }
 }

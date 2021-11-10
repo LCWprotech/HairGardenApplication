@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple"
+    tools:context=".Customer.CustomerAbout">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnPrivacy"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginStart="50dp"
+            android:text="Privacy Policy"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

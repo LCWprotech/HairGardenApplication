@@ -7,12 +7,24 @@
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_admin.xml" value="0.213768115942029" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_apointment.xml" value="0.16" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_customer.xml" value="0.21331521739130435" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_customer_f.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_hairstyle.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_login.xml" value="0.22327898550724637" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_privacy_policy.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_product.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_staff.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_admin_appointment.xml" value="0.264" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_admin_home.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_admin_product.xml" value="0.21331521739130435" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_customer_about.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_customer_appointment.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_customer_hair_style.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_customer_home.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_customer_product.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_staff_appointment.xml" value="0.264" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/fragment_staff_product.xml" value="0.20833333333333334" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/admin_bottom_navigation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/customer_bottom_navigation.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

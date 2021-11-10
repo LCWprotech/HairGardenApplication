@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/customerHome"
+        android:icon="@drawable/ic_home_24"
+        android:title="Home" />
+
+
+    <item
+        android:id="@+id/customerAppointment"
+        android:icon="@drawable/ic_appointment_24"
+        android:title="Appointment" />
+
+
+    <item
+        android:id="@+id/customerHair"
+        android:icon="@drawable/ic_hair_24"
+        android:title="Hairstyle" />
+
+
+    <item
+        android:id="@+id/customerProduct"
+        android:icon="@drawable/ic_product_24"
+        android:title="Product" />
+
+    <item
+        android:id="@+id/customerAbout"
+        android:icon="@drawable/ic_product_24"
+        android:title="About" />
+
+</menu>
