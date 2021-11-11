@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple"
+    tools:menu="@menu/logout"
     tools:context=".Staff.StaffAppointmentFragment">
 
     <LinearLayout
@@ -24,13 +25,28 @@
             android:inputType="none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="400dp">
 
-        <ListView
-            android:id="@+id/LvAnimation"
+            <ListView
+                android:id="@+id/LvAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginBottom="50dp">
+            </ListView>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp">
-        </ListView>
+            android:layout_height="59dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Search" />
 
     </LinearLayout>
 

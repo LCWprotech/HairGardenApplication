@@ -28,8 +28,6 @@ import java.util.Locale;
 
 public class CustomerAppointmentFragment extends Fragment {
 
-    ImageView btMenu;
-    RecyclerView recyclerView;
     EditText date_in;
     EditText time_in;
     EditText service;
@@ -86,8 +84,6 @@ public class CustomerAppointmentFragment extends Fragment {
         }, mYear, mMonth, mDay);
         mDatePicker.getDatePicker().setMinDate(mcurrentDate.getTimeInMillis());
         mDatePicker.show();
-
-        //DatePickerDialog mDatePicker = new DatePickerDialog(getContext(),dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
 
     }
     private void showTimeDialog(final EditText time_in) {
