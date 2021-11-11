@@ -17,14 +17,15 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.LCWprotech.hairgardenapplication.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class StaffAppointmentFragment extends Fragment {
 
-    EditText date_in;
-    EditText time_in;
+    TextInputEditText date_in;
+    TextInputEditText time_in;
 
     @Nullable
     @Override
