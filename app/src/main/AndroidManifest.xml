@@ -18,9 +18,11 @@
         android:theme="@style/Theme.HairGardenApplication">
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         <activity android:name=".Customer.AboutDeveloper"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName="Customer.CustomerAboutFragment"/>
         <activity android:name=".Customer.AboutUs"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName="Customer.CustomerAboutFragment"/>
         <activity
             android:name=".Admin.UpdateDeleteProduct"
             android:screenOrientation="portrait" />
