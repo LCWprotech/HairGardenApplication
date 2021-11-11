@@ -19,10 +19,10 @@
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         <activity android:name=".Customer.AboutDeveloper"
             android:screenOrientation="portrait"
-            android:parentActivityName="Customer.CustomerAboutFragment"/>
+            android:parentActivityName=".Login"/>   <!--Actually back to Customer About Fragment-->
         <activity android:name=".Customer.AboutUs"
             android:screenOrientation="portrait"
-            android:parentActivityName="Customer.CustomerAboutFragment"/>
+            android:parentActivityName=".Login"/>   <!--Actually back to Customer About Fragment-->
         <activity
             android:name=".Admin.UpdateDeleteProduct"
             android:screenOrientation="portrait" />

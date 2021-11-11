@@ -25,13 +25,13 @@ public class CustomerAboutFragment extends Fragment {
 
     String[] maintitle ={
             "About Us","About Developer","Contact Us",
-            "Feedback","Privacy Policy",
+            "Feedback","Terms of Use","Privacy Policy",
             "App Version: Alpha 0.5.0",
     };
 
     Integer[] imgid={
             R.drawable.app_logo,R.drawable.team_logo,R.drawable.ic_baseline_email_24,
-            R.drawable.ic_feedback_24,R.drawable.ic_policy_24,
+            R.drawable.ic_feedback_24,R.drawable.ic_policy_24,R.drawable.ic_policy_24,
             R.drawable.ic_apps_24,
     };
     @Nullable
@@ -74,10 +74,15 @@ public class CustomerAboutFragment extends Fragment {
                 }
                 else if(position == 4) {
                     Intent intent= new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://hair-garden.flycricket.io/privacy.html"));
+                    intent.setData(Uri.parse("https://hair-garden.flycricket.io/terms.html"));
                     startActivity(intent);
                 }
                 else if(position == 5) {
+                    Intent intent= new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://hair-garden.flycricket.io/privacy.html"));
+                    startActivity(intent);
+                }
+                else if(position == 6) {
                     Toast.makeText(getContext(), "You are up to date!", Toast.LENGTH_SHORT).show();
                 }
             }
