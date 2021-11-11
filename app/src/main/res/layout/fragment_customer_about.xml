@@ -12,15 +12,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnPrivacy"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="500dp"
-            android:layout_marginStart="50dp"
-            android:text="Privacy Policy"
-            />
-
+        <ListView
+            android:id="@+id/aboutList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp">
+        </ListView>
     </LinearLayout>
 
 </FrameLayout>

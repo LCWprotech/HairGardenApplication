@@ -55,7 +55,7 @@ public class AdminAddProduct extends AppCompatActivity {
     DatabaseReference databaseReference,dataa;
     FirebaseAuth Fauth;
     StorageReference ref;
-    String AdminId , RandomUID , State, City , Area;
+    String AdminId , RandomUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

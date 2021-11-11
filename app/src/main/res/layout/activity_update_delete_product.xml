@@ -125,7 +125,7 @@
 
         <Button
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:id="@+id/Updatedish"
             android:layout_gravity="center"
             android:backgroundTint="@color/blueish"
@@ -135,7 +135,7 @@
             android:padding="10dp"/>
         <Button
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:id="@+id/Deletedish"
             android:layout_gravity="center"
             android:backgroundTint="@color/Red"
