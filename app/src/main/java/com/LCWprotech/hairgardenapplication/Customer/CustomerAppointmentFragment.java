@@ -1,6 +1,7 @@
 package com.LCWprotech.hairgardenapplication.Customer;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TimePicker;
 
 import com.LCWprotech.hairgardenapplication.R;
 
@@ -30,7 +32,7 @@ public class CustomerAppointmentFragment extends Fragment {
     RecyclerView recyclerView;
     EditText date_in;
     EditText time_in;
-    EditText date_time_in;
+    EditText service;
 
     @Nullable
     @Override
@@ -40,9 +42,9 @@ public class CustomerAppointmentFragment extends Fragment {
         getActivity().setTitle("Appointment");
         date_in=v.findViewById(R.id.date_input);
         time_in=v.findViewById(R.id.time_input);
-        date_time_in=v.findViewById(R.id.date_time_input);
+        service=v.findViewById(R.id.service);
 
-        date_time_in.setInputType(InputType.TYPE_NULL);
+        service.setInputType(InputType.TYPE_NULL);
         date_in.setInputType(InputType.TYPE_NULL);
         time_in.setInputType(InputType.TYPE_NULL);
 
@@ -50,6 +52,12 @@ public class CustomerAppointmentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showDateDialog(date_in);
+            }
+        });
+        time_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimeDialog(time_in);
             }
         });
         return v;
@@ -81,5 +89,20 @@ public class CustomerAppointmentFragment extends Fragment {
 
         //DatePickerDialog mDatePicker = new DatePickerDialog(getContext(),dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
 
+    }
+    private void showTimeDialog(final EditText time_in) {
+        final Calendar calendar=Calendar.getInstance();
+
+        TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                calendar.set(Calendar.MINUTE,minute);
+                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
+                time_in.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+
+        new TimePickerDialog(getContext(),timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
     }
 }
