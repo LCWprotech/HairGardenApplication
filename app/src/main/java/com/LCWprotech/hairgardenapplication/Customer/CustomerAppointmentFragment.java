@@ -84,17 +84,23 @@ public class CustomerAppointmentFragment extends Fragment {
     }
     private void showTimeDialog(final EditText time_in) {
         final Calendar calendar=Calendar.getInstance();
-
-        TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int Minute = calendar.get(Calendar.MINUTE);;
+        TimePickerDialog mTimePicker = new TimePickerDialog(
+                getContext(), new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                calendar.set(Calendar.MINUTE,minute);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
-                time_in.setText(simpleDateFormat.format(calendar.getTime()));
+                if(hourOfDay < 10) {
+                    hourOfDay = 10;
+                    minute = 0;
+                }
+                else if(hourOfDay > 20) {
+                    hourOfDay = 20;
+                    minute = 0;
+                }
+                time_in.setText(String.format("%02d:%02d",hourOfDay , minute));
             }
-        };
-
-        new TimePickerDialog(getContext(),timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+        },hour,Minute,true);
+        mTimePicker.show();
     }
 }
