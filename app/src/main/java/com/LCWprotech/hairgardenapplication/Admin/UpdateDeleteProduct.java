@@ -68,6 +68,7 @@ public class UpdateDeleteProduct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_product);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         proname = (TextInputLayout) findViewById(R.id.product__name);
         desc = (TextInputLayout)findViewById(R.id.description);

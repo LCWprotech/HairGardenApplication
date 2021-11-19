@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HairGarden</string>
-
+    <string name="address">6A, Jalan Khaya 1, Taman Khaya, 06010, Changlun, Kedah.</string>
+    <string name="operationtime">Everyday 10.00AM - 8.00PM</string>
     <string-array name="Gender">
         <item>Male</item>
         <item>Female</item>

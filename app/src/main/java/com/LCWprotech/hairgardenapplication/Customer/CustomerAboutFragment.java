@@ -69,7 +69,7 @@ public class CustomerAboutFragment extends Fragment {
                 }
                 else if(position == 3) {
                     Intent intent= new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("mailto:lcwprotech@gmail.com"));
+                    intent.setData(Uri.parse("https://forms.gle/h3wrmuq1GeZFu3797"));
                     startActivity(intent);
                 }
                 else if(position == 4) {

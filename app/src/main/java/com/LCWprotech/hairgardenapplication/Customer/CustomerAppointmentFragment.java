@@ -94,8 +94,8 @@ public class CustomerAppointmentFragment extends Fragment {
                     hourOfDay = 10;
                     minute = 0;
                 }
-                else if(hourOfDay > 20) {
-                    hourOfDay = 20;
+                else if(hourOfDay > 18) {
+                    hourOfDay = 19;
                     minute = 0;
                 }
                 time_in.setText(String.format("%02d:%02d",hourOfDay , minute));

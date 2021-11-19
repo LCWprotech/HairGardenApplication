@@ -3,6 +3,7 @@
     package="com.LCWprotech.hairgardenapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -25,10 +26,12 @@
             android:parentActivityName=".Login"/>   <!--Actually back to Customer About Fragment-->
         <activity
             android:name=".Admin.UpdateDeleteProduct"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Login"/>   <!--Actually back to Admin Product Fragment-->
         <activity
             android:name=".Admin.AdminAddProduct"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Login"/>   <!--Actually back to Admin Product Fragment-->
         <activity
             android:name=".Customer.PrivacyPolicy"
             android:screenOrientation="portrait" />
@@ -37,7 +40,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ForgotPassword"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainMenu"/>   <!--Back to Login-->
         <activity
             android:name=".Customer.Customer"
             android:screenOrientation="portrait" />
@@ -46,7 +50,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Registration"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainMenu"/>   <!--Back to Login-->
         <activity
             android:name=".Login"
             android:screenOrientation="portrait" />

@@ -62,6 +62,7 @@ public class AdminAddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_product);storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         pName = (TextInputLayout) findViewById(R.id.productName);
         pDescription = (TextInputLayout) findViewById(R.id.productDescription);
         pQuantity = (TextInputLayout) findViewById(R.id.productQuantity);
