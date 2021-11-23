@@ -1,7 +1,7 @@
 package com.LCWprotech.hairgardenapplication.Admin;
 public class UpdateProductModel {
 
-    String Name,RandomUID,Description,Quantity,Price,ImageURL,AdminId;
+    String Name,RandomUID,Description,Quantity,Price,ImageURL,AdminId, Full_name;
 
     // Press Alt+insert
 
@@ -63,5 +63,11 @@ public class UpdateProductModel {
 
     public void setAdminId(String adminId) {
         AdminId = adminId;
+    }
+
+    public String getUsername() { return Full_name; }
+
+    public void setUsername(String fullname) {
+        Full_name = fullname;
     }
 }

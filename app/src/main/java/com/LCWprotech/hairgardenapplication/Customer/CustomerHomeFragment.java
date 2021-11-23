@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 import com.LCWprotech.hairgardenapplication.MainMenu;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,10 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 public class CustomerHomeFragment extends Fragment {
     TextView custname;
     DatabaseReference databaseReference;
-    DatabaseReference firebaseDatabase;
 
     @Nullable
     @Override
@@ -39,31 +41,34 @@ public class CustomerHomeFragment extends Fragment {
         setHasOptionsMenu(true);
 
         custname = v.findViewById(R.id.productname);
-        firebaseDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Address");
-        databaseReference = firebaseDatabase;
+        //firebaseDatabase = FirebaseDatabase.getInstance().getReference("Customer").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Full name");
+        //databaseReference = firebaseDatabase;
+
+        //final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //databaseReference = database.getReference("Customer").child(FirebaseAuth.getInstance().getUid()).child("Full name");
         //getcustomername();
 
         return v;
     }
-/*
+
     private void getcustomername() {
+
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 String name = snapshot.getValue(String.class);
-
                 custname.setText("WELCOME BACK, "+name);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Fail to retrieve customer name", Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Fail to retrieve customer name"+ databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-*/
+
 
 
     @Override

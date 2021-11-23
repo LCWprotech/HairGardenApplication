@@ -45,7 +45,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.name.setText(updateProductModel.getName());
         updateProductModel.getRandomUID();
         updateProductModel.getAdminId();
+        holder.Quantity.setText("Quantity: "+updateProductModel.getQuantity());
         holder.Price.setText("Price: RM"+updateProductModel.getPrice());
+        holder.Description.setText("Product Description: \n"+updateProductModel.getDescription());
 
     }
 
@@ -57,7 +59,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView name,Price;
+        TextView name,Price, Quantity, Description;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +67,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             imageView = itemView.findViewById(R.id.menu_image);
             name = itemView.findViewById(R.id.productname);
             Price = itemView.findViewById(R.id.productprice);
+            Quantity = itemView.findViewById(R.id.productquantity);
+            Description = itemView.findViewById(R.id.productdesciption);
+
         }
     }
 

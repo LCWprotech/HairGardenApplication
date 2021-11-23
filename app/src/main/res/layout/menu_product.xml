@@ -43,6 +43,29 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"/>
 
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/productquantity"
+                android:text="Quantity"
+                android:textSize="20sp"
+                android:maxWidth="300dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,6 +78,7 @@
                     android:id="@+id/productprice"
                     android:text="Price:RM3.00"
                     android:textSize="18sp"
+                    android:textColor="@color/Red"
                     android:gravity="end"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
@@ -62,6 +86,27 @@
                     android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/productdesciption"
+                android:text="Product Description"
+                android:textSize="20sp"
+                android:maxWidth="300dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"/>
 
         </LinearLayout>
 
