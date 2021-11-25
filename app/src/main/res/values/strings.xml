@@ -2,6 +2,8 @@
     <string name="app_name">HairGarden</string>
     <string name="address">6A, Jalan Khaya 1, Taman Khaya, 06010, Changlun, Kedah.</string>
     <string name="operationtime">Everyday 10.00AM - 8.00PM</string>
+    <string name="developer">WONG LIK | CHAI WEI NING | LIM ZE XUEN</string>
+    <string name="regnum">18DDT19F1028 18DDT19F1025 18DDT19F1129</string>
     <string-array name="Gender">
         <item>Male</item>
         <item>Female</item>
