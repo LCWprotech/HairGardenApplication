@@ -26,4 +26,5 @@
     <color name="lightgray">#1D000000</color>
     <color name="darkgreen">#026909</color>
     <color name="OffWhite">#36FFFFFF</color>
+    <color name="cardviewcolor">#F8F9F9</color>
 </resources>

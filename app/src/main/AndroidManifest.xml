@@ -17,21 +17,26 @@
         android:screenOrientation="sensorPortrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
+        <activity android:name=".Customer.MaleHair1"></activity>
+        <activity android:name=".Customer.FemaleHairstyle" />
+        <activity android:name=".Customer.MaleHairstyle" />
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
-        <activity android:name=".Customer.AboutDeveloper"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Login"/>   <!--Actually back to Customer About Fragment-->
-        <activity android:name=".Customer.AboutUs"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Login"/>   <!--Actually back to Customer About Fragment-->
+        <activity
+            android:name=".Customer.AboutDeveloper"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Customer About Fragment -->
+        <activity
+            android:name=".Customer.AboutUs"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Customer About Fragment -->
         <activity
             android:name=".Admin.UpdateDeleteProduct"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Login"/>   <!--Actually back to Admin Product Fragment-->
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Admin Product Fragment -->
         <activity
             android:name=".Admin.AdminAddProduct"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Login"/>   <!--Actually back to Admin Product Fragment-->
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Admin Product Fragment -->
         <activity
             android:name=".Customer.PrivacyPolicy"
             android:screenOrientation="portrait" />
@@ -40,8 +45,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ForgotPassword"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainMenu"/>   <!--Back to Login-->
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait" /> <!-- Back to Login -->
         <activity
             android:name=".Customer.Customer"
             android:screenOrientation="portrait" />
@@ -50,8 +55,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Registration"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainMenu"/>   <!--Back to Login-->
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait" /> <!-- Back to Login -->
         <activity
             android:name=".Login"
             android:screenOrientation="portrait" />
