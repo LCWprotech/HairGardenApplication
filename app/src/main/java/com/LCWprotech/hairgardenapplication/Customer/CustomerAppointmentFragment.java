@@ -2,6 +2,7 @@ package com.LCWprotech.hairgardenapplication.Customer;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,8 +23,11 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.LCWprotech.hairgardenapplication.Admin.AdminProductAdapter;
+import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,37 +39,49 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.UUID;
 
 public class CustomerAppointmentFragment extends Fragment {
 
     TextInputEditText date_in;
     TextInputEditText time_in;
+    TextInputEditText tname;
     Button btnBookAppointment;
     Spinner service;
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference,dataa;
+    DatabaseReference databaseReference;
     FirebaseAuth Fauth;
+    Uri imageuri;
     StorageReference ref;
     AppointmentInfo appointmentInfo;
-    //String date,time,services;
+    String RandomUID,CusId;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        FirebaseApp.initializeApp(getActivity());
         View v = inflater.inflate(R.layout.fragment_customer_appointment,null);
         getActivity().setTitle("Appointment");
-
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         appointmentInfo = new AppointmentInfo();
         date_in=v.findViewById(R.id.date_input);
         time_in=v.findViewById(R.id.time_input);
+        tname = v.findViewById(R.id.name);
         service=v.findViewById(R.id.service);
         btnBookAppointment = v.findViewById(R.id.btnBookAppointment);
-        databaseReference = firebaseDatabase.getReference("AppointmentInfo");
+
         date_in.setInputType(InputType.TYPE_NULL);
         time_in.setInputType(InputType.TYPE_NULL);
+        Fauth = FirebaseAuth.getInstance();
+        RandomUID = UUID.randomUUID().toString();
+        ref = storageReference.child(RandomUID);
+        CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReference = firebaseDatabase.getInstance().getReference("AppointmentInfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUID);
+
 
         date_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,18 +102,22 @@ public class CustomerAppointmentFragment extends Fragment {
                 // getting text from our edittext fields.
                 String date = date_in.getText().toString().trim();
                 String time = time_in.getText().toString().trim();
+                String name = tname.getText().toString().trim();
                 String services = service.getSelectedItem().toString().trim();
+                String RandomUID = UUID.randomUUID().toString();
+                ref = storageReference.child(RandomUID);
+                String CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 // below line is for checking weather the
                 // edittext fields are empty or not.
-                if (TextUtils.isEmpty(date) && TextUtils.isEmpty(time) && TextUtils.isEmpty(services)) {
+                if (TextUtils.isEmpty(date) && TextUtils.isEmpty(time) && TextUtils.isEmpty(name) && TextUtils.isEmpty(services)) {
                     // if the text fields are empty
                     // then show the below message.
                     Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
                 } else {
                     // else call the method to add
                     // data to our database.
-                    addDatatoFirebase(date, time, services);
+                    addDatatoFirebase(date,time,name,services,RandomUID,CusId);
                 }
             }
         });
@@ -151,32 +171,26 @@ public class CustomerAppointmentFragment extends Fragment {
         mTimePicker.show();
     }
 
-    private void addDatatoFirebase(String date, String time, String service) {
+    private void addDatatoFirebase(String date,String time,String name,String services,String RandomUID,String CusId) {
 
-        // below 3 lines of code is used to set
-        // data in our object class.
         appointmentInfo.setDate(date);
         appointmentInfo.setTime(time);
-        appointmentInfo.setService(service);
+        appointmentInfo.setName(name);
+        appointmentInfo.setService(services);
+        appointmentInfo.setRandomUID(RandomUID);
+        appointmentInfo.setCusId(CusId);
 
-        // we are use add value event listener method
-        // which is called with database reference.
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // inside the method of on Data change we are setting
-                // our object class to our database reference.
-                // data base reference will sends data to firebase.
+
                 databaseReference.setValue(appointmentInfo);
 
-                // after adding this data we are showing toast message.
                 Toast.makeText(getContext(), "data added", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // if the data is not added or it is cancelled then
-                // we are displaying a failure toast message.
                 Toast.makeText(getContext(), "Fail to add data " + error, Toast.LENGTH_SHORT).show();
             }
         });
