@@ -108,15 +108,9 @@ public class CustomerAppointmentFragment extends Fragment {
                 ref = storageReference.child(RandomUID);
                 String CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                // below line is for checking weather the
-                // edittext fields are empty or not.
-                if (TextUtils.isEmpty(date) && TextUtils.isEmpty(time) && TextUtils.isEmpty(name) && TextUtils.isEmpty(services)) {
-                    // if the text fields are empty
-                    // then show the below message.
+                if (TextUtils.isEmpty(date) || TextUtils.isEmpty(time) || TextUtils.isEmpty(name) || TextUtils.isEmpty(services)) {
                     Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
                 } else {
-                    // else call the method to add
-                    // data to our database.
                     addDatatoFirebase(date,time,name,services,RandomUID,CusId);
                 }
             }
