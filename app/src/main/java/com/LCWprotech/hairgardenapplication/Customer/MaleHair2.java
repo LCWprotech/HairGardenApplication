@@ -12,7 +12,7 @@ public class MaleHair2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_male_hair2);
-        setTitle("Male Hair 2");
+        setTitle("Vincent Hair");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

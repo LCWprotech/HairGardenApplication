@@ -18,6 +18,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
         <activity
+            android:name=".Customer.FemaleHair6"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
+            android:name=".Customer.FemaleHair5"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
+            android:name=".Customer.FemaleHair4"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
+            android:name=".Customer.FemaleHair3"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
+            android:name=".Customer.FemaleHair2"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
+            android:name=".Customer.FemaleHair1"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" /> <!-- Actually back to Female Hair Activity -->
+        <activity
             android:name=".Customer.MaleHair6"
             android:parentActivityName=".Login"
             android:screenOrientation="portrait" /> <!-- Actually back to Male Hair Activity -->
