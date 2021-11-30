@@ -164,7 +164,7 @@
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/male_short1" />
+                        android:src="@drawable/male_short4" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/male_short1" />
+                        android:src="@drawable/male_short5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -234,7 +234,7 @@
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/male_short1" />
+                        android:src="@drawable/male_short6" />
 
                     <TextView
                         android:layout_width="wrap_content"

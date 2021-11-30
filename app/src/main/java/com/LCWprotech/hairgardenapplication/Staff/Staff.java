@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.LCWprotech.hairgardenapplication.Customer.HairstyleFragment;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -40,7 +41,7 @@ public class Staff extends AppCompatActivity implements BottomNavigationView.OnN
                 fragment=new StaffAppointmentFragment();
                 break;
             case R.id.staffHair:
-                fragment=new StaffHairstyleFragment();
+                fragment=new HairstyleFragment();
                 break;
             case R.id.staffProduct:
                 fragment=new ProductFragment();

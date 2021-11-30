@@ -12,5 +12,8 @@ public class FemaleHairstyle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_female_hairstyle);
+        setTitle("Female Hairstyle");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 }

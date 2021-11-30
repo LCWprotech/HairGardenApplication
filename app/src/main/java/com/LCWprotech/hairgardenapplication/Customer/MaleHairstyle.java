@@ -10,24 +10,66 @@ import android.view.View;
 import com.LCWprotech.hairgardenapplication.R;
 
 public class MaleHairstyle extends AppCompatActivity {
-    CardView cvHair1, cvHair2, cvHair3, cvHair4, cvHair5, cvHair6;
+    CardView cvMHair1, cvMHair2, cvMHair3, cvMHair4, cvMHair5, cvMHair6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_male_hairstyle);
+        setTitle("Male Hairstyle");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cvHair1 = findViewById(R.id.cardMaleHair1);
-        cvHair2 = findViewById(R.id.cardMaleHair2);
-        cvHair3 = findViewById(R.id.cardMaleHair3);
-        cvHair4 = findViewById(R.id.cardMaleHair4);
-        cvHair5 = findViewById(R.id.cardMaleHair5);
-        cvHair6 = findViewById(R.id.cardMaleHair6);
+        cvMHair1 = findViewById(R.id.cardMaleHair1);
+        cvMHair2 = findViewById(R.id.cardMaleHair2);
+        cvMHair3 = findViewById(R.id.cardMaleHair3);
+        cvMHair4 = findViewById(R.id.cardMaleHair4);
+        cvMHair5 = findViewById(R.id.cardMaleHair5);
+        cvMHair6 = findViewById(R.id.cardMaleHair6);
 
-        cvHair1.setOnClickListener(new View.OnClickListener() {
+        cvMHair1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MaleHairstyle.this, MaleHair1.class);
+                startActivity(intent);
+            }
+        });
+
+        cvMHair2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaleHairstyle.this, MaleHair2.class);
+                startActivity(intent);
+            }
+        });
+
+        cvMHair3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaleHairstyle.this, MaleHair3.class);
+                startActivity(intent);
+            }
+        });
+
+        cvMHair4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaleHairstyle.this, MaleHair4.class);
+                startActivity(intent);
+            }
+        });
+
+        cvMHair5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaleHairstyle.this, MaleHair5.class);
+                startActivity(intent);
+            }
+        });
+
+        cvMHair6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaleHairstyle.this, MaleHair6.class);
                 startActivity(intent);
             }
         });

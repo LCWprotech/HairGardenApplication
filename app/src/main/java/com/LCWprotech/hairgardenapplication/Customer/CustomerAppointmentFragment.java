@@ -108,7 +108,7 @@ public class CustomerAppointmentFragment extends Fragment {
                 ref = storageReference.child(RandomUID);
                 String CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                // below line is for checking weather the
+                // below line is for checking whether the
                 // edittext fields are empty or not.
                 if (TextUtils.isEmpty(date) && TextUtils.isEmpty(time) && TextUtils.isEmpty(name) && TextUtils.isEmpty(services)) {
                     // if the text fields are empty

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.LCWprotech.hairgardenapplication.R;
-public class CustomerHairstyleFragment extends Fragment {
+public class HairstyleFragment extends Fragment {
     CardView cvMale, cvFemale;
 
 
@@ -21,7 +21,7 @@ public class CustomerHairstyleFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_customer_hairstyle,null);
+        View v = inflater.inflate(R.layout.fragment_hairstyle,null);
         getActivity().setTitle("Hairstyle");
 
         cvMale = v.findViewById(R.id.cardMaleHair);

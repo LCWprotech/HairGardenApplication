@@ -37,7 +37,7 @@ public class Customer extends AppCompatActivity implements BottomNavigationView.
                 fragment=new CustomerAppointmentFragment();
                 break;
             case R.id.customerHair:
-                fragment=new CustomerHairstyleFragment();
+                fragment=new HairstyleFragment();
                 break;
             case R.id.customerProduct:
                 fragment=new ProductFragment();

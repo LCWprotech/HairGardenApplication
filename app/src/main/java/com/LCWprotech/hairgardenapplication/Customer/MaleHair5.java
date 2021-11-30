@@ -6,13 +6,13 @@ import android.os.Bundle;
 
 import com.LCWprotech.hairgardenapplication.R;
 
-public class AboutDeveloper extends AppCompatActivity {
+public class MaleHair5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_developer);
-        setTitle("About Developer");
+        setContentView(R.layout.activity_male_hair5);
+        setTitle("Male Hair 5");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
