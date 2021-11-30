@@ -17,13 +17,13 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="145dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/lcw"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:text="@string/developer"
             android:textSize="18dp"
@@ -35,12 +35,12 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/lightgray"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="15dp"
             android:text="Registration Number :"
             android:textSize="20dp"
@@ -60,5 +60,61 @@
             android:textColor="@color/black">
         </TextView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/lightgray"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:text="Course :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:text="@string/course"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/lightgray"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:text="Department :"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+        </TextView>
+
+        <TextView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:textAlignment="textStart"
+            android:text="@string/dept"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+        </TextView>
     </LinearLayout>
 </LinearLayout>

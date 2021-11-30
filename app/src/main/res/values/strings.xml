@@ -4,6 +4,8 @@
     <string name="operationtime">Everyday 10.00AM - 8.00PM</string>
     <string name="developer">WONG LIK | CHAI WEI NING | LIM ZE XUEN</string>
     <string name="regnum">18DDT19F1028 18DDT19F1025 18DDT19F1129</string>
+    <string name="course">Diploma of Information Technology<br></br>(Software Track)</string>
+    <string name="dept">Department of Information Technology and Communication <br></br> Politeknik Tuanku Syed Sirajuddin</string>
     <string-array name="Gender">
         <item>Male</item>
         <item>Female</item>
