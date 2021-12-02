@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -16,16 +18,30 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import com.LCWprotech.hairgardenapplication.Admin.AppointmentAdapter;
+import com.LCWprotech.hairgardenapplication.Admin.AppointmentModel;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class StaffAppointmentFragment extends Fragment {
 
+    RecyclerView recyclerView;
     TextInputEditText date_in;
     TextInputEditText time_in;
+    FirebaseFirestore db;
+    private AppointmentAdapter adapter;
+    ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
+    DatabaseReference reference;
 
     @Nullable
     @Override
@@ -35,6 +51,10 @@ public class StaffAppointmentFragment extends Fragment {
         getActivity().setTitle("Staff Appointment");
         date_in=v.findViewById(R.id.date_input);
         time_in=v.findViewById(R.id.time_input);
+        recyclerView = v.findViewById(R.id.LvAppointment);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        StaffAppointment();
 
         date_in.setInputType(InputType.TYPE_NULL);
         time_in.setInputType(InputType.TYPE_NULL);
@@ -91,5 +111,28 @@ public class StaffAppointmentFragment extends Fragment {
         };
 
         new TimePickerDialog(getContext(),timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+    }
+    private void StaffAppointment() {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                AppointList.clear();
+                for(DataSnapshot snapshot1:snapshot.getChildren()) {
+                    for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
+                        AppointmentModel appointmentModel = snapshot2.getValue(AppointmentModel.class);
+                        AppointList.add(appointmentModel);
+                    }
+                }
+                adapter = new AppointmentAdapter(getContext(),AppointList);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

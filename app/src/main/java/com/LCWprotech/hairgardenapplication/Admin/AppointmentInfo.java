@@ -1,6 +1,4 @@
-package com.LCWprotech.hairgardenapplication.Customer;
-
-import java.security.PublicKey;
+package com.LCWprotech.hairgardenapplication.Admin;
 
 public class AppointmentInfo {
     String date,time,service,name,RandomUID,CusID;

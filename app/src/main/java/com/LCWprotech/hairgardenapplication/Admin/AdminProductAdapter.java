@@ -18,7 +18,7 @@ import java.util.List;
 
 public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapter.ViewHolder> {
 
-    private Context mcont;
+    Context mcont;
     private List<UpdateProductModel> updateProductModelList;
 
     public AdminProductAdapter(Context context , List<UpdateProductModel>updateProductModelList){

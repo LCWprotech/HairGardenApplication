@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.InputType;
 import android.util.Log;
@@ -18,9 +20,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.LCWprotech.hairgardenapplication.Customer.AppointmentInfo;
 import com.LCWprotech.hairgardenapplication.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -29,18 +34,26 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class AdminAppointmentFragment extends Fragment {
 
+    RecyclerView recyclerView;
     TextInputEditText date_in;
     TextInputEditText time_in;
-    ArrayList<String> AppointList;
+    FirebaseFirestore db;
+    private AppointmentAdapter adapter;
+    ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
     DatabaseReference reference;
-    ListView LvAppointment;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,9 +63,11 @@ public class AdminAppointmentFragment extends Fragment {
 
         date_in=v.findViewById(R.id.date_input);
         time_in=v.findViewById(R.id.time_input);
-        LvAppointment = v.findViewById(R.id.LvAppointment);
-        reference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");
-        AppointList = new ArrayList<>();
+        recyclerView = v.findViewById(R.id.LvAppointment);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adminAppointment();
+
         date_in.setInputType(InputType.TYPE_NULL);
         time_in.setInputType(InputType.TYPE_NULL);
         date_in.setOnClickListener(new View.OnClickListener() {
@@ -67,21 +82,6 @@ public class AdminAppointmentFragment extends Fragment {
                 showTimeDialog(time_in);
             }
         });
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the
-                // values to update the UI
-                AppointmentInfo post = dataSnapshot.getValue(AppointmentInfo.class);
-                AppointList.add(String.valueOf(post));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-        reference.addValueEventListener(postListener);
-        //initializeListView();
         return v;
     }
     private void showDateDialog(final EditText date_in) {
@@ -123,32 +123,21 @@ public class AdminAppointmentFragment extends Fragment {
 
         new TimePickerDialog(getContext(),timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
     }
-    /*private void initializeListView() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_dropdown_item_1line, AppointList);
+    private void adminAppointment() {
 
-        reference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");
-
-        reference.addChildEventListener(new ChildEventListener() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                AppointList.add(snapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                AppointList.remove(snapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                AppointList.clear();
+                for(DataSnapshot snapshot1:snapshot.getChildren()) {
+                    for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
+                        AppointmentModel appointmentModel = snapshot2.getValue(AppointmentModel.class);
+                        AppointList.add(appointmentModel);
+                    }
+                }
+                adapter = new AppointmentAdapter(getContext(),AppointList);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -156,6 +145,5 @@ public class AdminAppointmentFragment extends Fragment {
 
             }
         });
-        LvAppointment.setAdapter(adapter);
-    }*/
+    }
 }
