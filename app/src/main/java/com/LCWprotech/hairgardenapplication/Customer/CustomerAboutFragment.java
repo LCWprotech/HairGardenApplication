@@ -85,15 +85,9 @@ public class CustomerAboutFragment extends Fragment {
                     startActivity(intent);
                 }
                 else if(position == 6) {
-                    if (appVersion == "Alpha 0.7.0"){
-                        Toast.makeText(getContext(), "You are up to date!", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        Intent intent= new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("https://github.com/LCWprotech/HairGarden/releases"));
-                        startActivity(intent);
-                    }
+                    Intent intent= new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://github.com/LCWprotech/HairGarden/releases"));
+                    startActivity(intent);
                 }
             }
         });
