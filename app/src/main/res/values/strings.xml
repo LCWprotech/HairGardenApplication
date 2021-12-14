@@ -6,6 +6,10 @@
     <string name="regnum">18DDT19F1028 18DDT19F1025 18DDT19F1129</string>
     <string name="course">Diploma of Information Technology<br></br>(Software Track)</string>
     <string name="dept">Department of Information Technology and Communication <br></br> Politeknik Tuanku Syed Sirajuddin</string>
+    <string name="notice">Dear Customer, Accroding to the Goverment Covid-19 <br>Standard Operating Procedures (SOP)</br>, you are advised to check your body temperature, wear a face mask and check-in My Sejahtera before entering into Hair Garden Salon.
+        <br></br><br></br>Those with temperature above <b>38℃</b> are advised to visit the nearest clinic/hospital for further medical check ups.
+    </string>
+
     <string-array name="Gender">
         <item>Male</item>
         <item>Female</item>
