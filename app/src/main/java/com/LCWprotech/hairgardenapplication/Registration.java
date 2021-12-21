@@ -116,7 +116,7 @@ public class Registration extends AppCompatActivity {
                                         hashMap1.put("Mobile No",mobile);
                                         hashMap1.put("Full Name",name);
                                         hashMap1.put("EmailId",emailid);
-                                        hashMap1.put("Password",password);
+                                        //hashMap1.put("Password",password);
                                         hashMap1.put("Postcode",pincode);
                                         hashMap1.put("Gender",gender);
                                         hashMap1.put("Confirm Password",confpassword);

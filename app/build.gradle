@@ -12,7 +12,7 @@ android {
         minSdkVersion 25
         targetSdkVersion 30
         versionCode 1
-        versionName 'Alpha 0.7.0'
+        versionName 'Alpha 0.9.0'
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -47,6 +47,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-inappmessaging-display'
 
     //additional dependencies
     implementation 'com.hbb20:ccp:2.5.3'
