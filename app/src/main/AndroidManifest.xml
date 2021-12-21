@@ -85,6 +85,10 @@
             android:parentActivityName=".Login"
             android:screenOrientation="portrait" /> <!-- Actually back to Customer About Fragment -->
         <activity
+            android:name=".Admin.UpdateDeleteAppointment"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Admin.UpdateDeleteProduct"
             android:parentActivityName=".Login"
             android:screenOrientation="portrait" /> <!-- Actually back to Admin Product Fragment -->

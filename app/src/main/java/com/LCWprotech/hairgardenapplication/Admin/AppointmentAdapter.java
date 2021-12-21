@@ -66,4 +66,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             name = itemView.findViewById(R.id.appointment_name);
         }
     }
+    public void updateList(List<AppointmentModel> list){
+        this.AppointmentModelList = list;
+        notifyDataSetChanged();
+    }
 }

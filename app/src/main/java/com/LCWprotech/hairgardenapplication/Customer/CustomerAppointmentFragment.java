@@ -24,6 +24,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.LCWprotech.hairgardenapplication.Admin.AdminProductAdapter;
+import com.LCWprotech.hairgardenapplication.Admin.AppointmentModel;
 import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -55,7 +56,7 @@ public class CustomerAppointmentFragment extends Fragment {
     FirebaseAuth Fauth;
     Uri imageuri;
     StorageReference ref;
-    AppointmentInfo appointmentInfo;
+    AppointmentModel appointmentInfo;
     String RandomUID,CusId;
 
     @Nullable
@@ -67,7 +68,7 @@ public class CustomerAppointmentFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        appointmentInfo = new AppointmentInfo();
+        appointmentInfo = new AppointmentModel();
         date_in=v.findViewById(R.id.date_input);
         time_in=v.findViewById(R.id.time_input);
         tname = v.findViewById(R.id.name);
@@ -80,7 +81,7 @@ public class CustomerAppointmentFragment extends Fragment {
         RandomUID = UUID.randomUUID().toString();
         ref = storageReference.child(RandomUID);
         CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = firebaseDatabase.getInstance().getReference("AppointmentInfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUID);
+
 
 
         date_in.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +105,7 @@ public class CustomerAppointmentFragment extends Fragment {
                 String time = time_in.getText().toString().trim();
                 String name = tname.getText().toString().trim();
                 String services = service.getSelectedItem().toString().trim();
-                String RandomUID = UUID.randomUUID().toString();
+                RandomUID = UUID.randomUUID().toString();
                 ref = storageReference.child(RandomUID);
                 String CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -173,7 +174,7 @@ public class CustomerAppointmentFragment extends Fragment {
         appointmentInfo.setService(services);
         appointmentInfo.setRandomUID(RandomUID);
         appointmentInfo.setCusId(CusId);
-
+        databaseReference = firebaseDatabase.getInstance().getReference("AppointmentInfo").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(RandomUID);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
