@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import java.util.List;
 public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.ViewHolder>{
     private Context mcont;
     private List<AppointmentModel> AppointmentModelList;
+    private List<AppointmentModel> filteredList;
 
     public AppointmentAdapter(Context context , List<AppointmentModel>AppointmentModelList){
         this.AppointmentModelList = AppointmentModelList;
@@ -66,8 +68,42 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             name = itemView.findViewById(R.id.appointment_name);
         }
     }
-    public void updateList(List<AppointmentModel> list){
-        this.AppointmentModelList = list;
-        notifyDataSetChanged();
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults filterResults = new FilterResults();
+                if(constraint == null || constraint.length() == 0){
+                    filterResults.count = AppointmentModelList.size();
+                    filterResults.values = AppointmentModelList;
+
+                }else{
+                    List<AppointmentModel> resultsModel = new ArrayList<>();
+                    String searchStr = constraint.toString().toLowerCase();
+
+                    for(AppointmentModel itemsModel:AppointmentModelList){
+                        if(itemsModel.getDate().contains(searchStr)){
+                            resultsModel.add(itemsModel);
+                        }
+                        filterResults.count = resultsModel.size();
+                        filterResults.values = resultsModel;
+                    }
+
+
+                }
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                filteredList = (List<AppointmentModel>) results.values;
+                notifyDataSetChanged();
+
+            }
+        };
+        return filter;
     }
 }

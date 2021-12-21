@@ -91,7 +91,21 @@
                 android:layout_marginEnd="10dp"
                 android:text="Book appointment" />
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/LvAppointment"
+                    android:layout_width="match_parent"
+                    android:layout_height="650dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddProduct"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </ScrollView>
 
         </LinearLayout>
 

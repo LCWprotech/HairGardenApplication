@@ -180,27 +180,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                         alert.show();
                     }
                 });
-                /*date_in.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                        // TODO Auto-generated method stub
-                    }
-
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                        // TODO Auto-generated method stub
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-
-                        // filter your list from your input
-                        filter(s.toString());
-                        //you can use runnable postDelayed like 500 ms to delay search text
-                    }
-                });*/
 
             }
             @Override
@@ -303,17 +283,6 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
         },hour,Minute,true);
         mTimePicker.show();
     }
-    void filter(String text){
-        List<AppointmentModel> temp = new ArrayList();
-        for(AppointmentModel d: displayedList){
-            //or use .equal(text) with you want equal match
-            //use .toLowerCase() for better matches
-            if(d.getDate().contains(text)){
-                temp.add(d);
-            }
-        }
-        //update recyclerview
-        //AppointmentAdapter.updateList(temp);
-    }
+
 
 }

@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,7 +84,29 @@ public class AdminAppointmentFragment extends Fragment {
                 showTimeDialog(time_in);
             }
         });
+        /*date_in.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // filter your list from your input
+                //customAdapter.getFilter().filter(newText);
+                //you can use runnable postDelayed like 500 ms to delay search text
+            }
+        });*/
         return v;
+
     }
     private void showDateDialog(final EditText date_in) {
         final Calendar mcurrentDate = Calendar.getInstance();
@@ -146,4 +170,5 @@ public class AdminAppointmentFragment extends Fragment {
             }
         });
     }
+
 }

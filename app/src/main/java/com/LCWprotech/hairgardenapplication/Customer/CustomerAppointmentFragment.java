@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.InputType;
 import android.text.TextUtils;
@@ -24,6 +26,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.LCWprotech.hairgardenapplication.Admin.AdminProductAdapter;
+import com.LCWprotech.hairgardenapplication.Admin.AppointmentAdapter;
 import com.LCWprotech.hairgardenapplication.Admin.AppointmentModel;
 import com.LCWprotech.hairgardenapplication.Admin.UpdateProductModel;
 import com.LCWprotech.hairgardenapplication.R;
@@ -39,6 +42,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -47,6 +51,8 @@ public class CustomerAppointmentFragment extends Fragment {
     TextInputEditText date_in;
     TextInputEditText time_in;
     TextInputEditText tname;
+    private AppointmentAdapter adapter;
+    RecyclerView recyclerView;
     Button btnBookAppointment;
     Spinner service;
     FirebaseStorage storage;
@@ -57,6 +63,7 @@ public class CustomerAppointmentFragment extends Fragment {
     Uri imageuri;
     StorageReference ref;
     AppointmentModel appointmentInfo;
+    ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
     String RandomUID,CusId;
 
     @Nullable
@@ -81,6 +88,10 @@ public class CustomerAppointmentFragment extends Fragment {
         RandomUID = UUID.randomUUID().toString();
         ref = storageReference.child(RandomUID);
         CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        recyclerView = v.findViewById(R.id.LvAppointment);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adminAppointment();
 
 
 
@@ -187,6 +198,28 @@ public class CustomerAppointmentFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getContext(), "Fail to add data " + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    private void adminAppointment() {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo").child(CusId);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                AppointList.clear();
+                for(DataSnapshot snapshot1:snapshot.getChildren()) {
+                        AppointmentModel appointmentModel = snapshot1.getValue(AppointmentModel.class);
+                        AppointList.add(appointmentModel);
+                }
+                adapter = new AppointmentAdapter(getContext(),AppointList);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
