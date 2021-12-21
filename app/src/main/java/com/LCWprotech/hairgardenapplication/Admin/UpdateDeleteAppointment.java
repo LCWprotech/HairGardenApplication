@@ -99,31 +99,6 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                progressDialog = new ProgressDialog(UpdateDeleteAppointment.this);
-                databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot snapshot1:snapshot.getChildren()) {
-                            for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
-                                AppointmentModel appointmentModel = snapshot2.getValue(AppointmentModel.class);
-                                String date = appointmentModel.getDate();
-                                String time = appointmentModel.getTime();
-                                String name = appointmentModel.getName();
-                                date_in.setText(date);
-                                time_in.setText(time);
-                                tname.setText(name);
-                                //setSpinnerValue(serv);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
                 Update_dish.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -159,7 +134,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                                 firebaseDatabase.getInstance().getReference("AppointmentInfo")
                                         .child(CusID).child(ID).removeValue();
                                 AlertDialog.Builder appointment = new AlertDialog.Builder(UpdateDeleteAppointment.this);
-                                appointment.setMessage("Product Has Been Deleted!");
+                                appointment.setMessage("Appointment Has Been Deleted!");
                                 appointment.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -180,7 +155,26 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                         alert.show();
                     }
                 });
+                progressDialog = new ProgressDialog(UpdateDeleteAppointment.this);
+                databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo").child(CusID).child(ID);
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                AppointmentModel appointmentModel = snapshot.getValue(AppointmentModel.class);
+                                String date = appointmentModel.getDate();
+                                String time = appointmentModel.getTime();
+                                String name = appointmentModel.getName();
+                                date_in.setText(date);
+                                time_in.setText(time);
+                                tname.setText(name);
 
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
             @Override
@@ -214,6 +208,8 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
         }
     }
     private void update(){
+        String ID = getIntent().getStringExtra("updatedeleteappointment");
+        String CusID = getIntent().getStringExtra("cusID");
         appointmentModel.setDate(date);
         appointmentModel.setTime(time);
         appointmentModel.setName(name);
