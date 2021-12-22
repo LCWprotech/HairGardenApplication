@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_about.xml" value="0.1816123188405797" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_admin.xml" value="0.213768115942029" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_admin_add_product.xml" value="0.19701086956521738" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_apointment.xml" value="0.16" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_cus_appointment_display.xml" value="0.2536231884057971" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_customer.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_customer_f.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_female_hairstyle.xml" value="0.21739130434782608" />
@@ -14,7 +16,7 @@
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_privacy_policy.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_product.xml" value="0.21331521739130435" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_staff.xml" value="0.21331521739130435" />
-        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_update_delete_appointment.xml" value="0.23550724637681159" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_update_delete_appointment.xml" value="0.2" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/activity_update_delete_product.xml" value="0.23550724637681159" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/admin_menu_update_delete.xml" value="0.2" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/apopintment_lv_item.xml" value="0.24003623188405798" />
@@ -38,6 +40,8 @@
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/layout/item_drawer_main.xml" value="0.2028985507246377" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/admin_bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/customer_bottom_navigation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/logout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Studio app/HairGardenApplication/app/src/main/res/menu/staff_bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/FYP/app/src/main/res/layout/activity_about_developer.xml" value="0.264" />
         <entry key="..\:/FYP/app/src/main/res/layout/activity_about_us.xml" value="0.12917933130699089" />
       </map>

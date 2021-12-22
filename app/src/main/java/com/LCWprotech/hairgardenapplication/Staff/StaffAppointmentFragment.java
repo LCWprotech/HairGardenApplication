@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 
 import com.LCWprotech.hairgardenapplication.Admin.AppointmentAdapter;
 import com.LCWprotech.hairgardenapplication.Admin.AppointmentModel;
+import com.LCWprotech.hairgardenapplication.Customer.cusAppointmentAdapter;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +40,7 @@ public class StaffAppointmentFragment extends Fragment {
     TextInputEditText date_in;
     TextInputEditText time_in;
     FirebaseFirestore db;
-    private AppointmentAdapter adapter;
+    private cusAppointmentAdapter adapter;
     ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
     DatabaseReference reference;
 
@@ -125,7 +126,7 @@ public class StaffAppointmentFragment extends Fragment {
                         AppointList.add(appointmentModel);
                     }
                 }
-                adapter = new AppointmentAdapter(getContext(),AppointList);
+                adapter = new cusAppointmentAdapter(getContext(),AppointList);
                 recyclerView.setAdapter(adapter);
             }
 

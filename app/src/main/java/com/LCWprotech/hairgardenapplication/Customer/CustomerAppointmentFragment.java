@@ -51,7 +51,7 @@ public class CustomerAppointmentFragment extends Fragment {
     TextInputEditText date_in;
     TextInputEditText time_in;
     TextInputEditText tname;
-    private AppointmentAdapter adapter;
+    private cusAppointmentAdapter adapter;
     RecyclerView recyclerView;
     Button btnBookAppointment;
     Spinner service;
@@ -213,7 +213,7 @@ public class CustomerAppointmentFragment extends Fragment {
                         AppointmentModel appointmentModel = snapshot1.getValue(AppointmentModel.class);
                         AppointList.add(appointmentModel);
                 }
-                adapter = new AppointmentAdapter(getContext(),AppointList);
+                adapter = new cusAppointmentAdapter(getContext(),AppointList);
                 recyclerView.setAdapter(adapter);
             }
 
