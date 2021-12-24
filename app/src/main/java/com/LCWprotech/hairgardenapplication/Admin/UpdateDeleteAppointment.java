@@ -108,11 +108,14 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                             time = time_in.getText().toString().trim();
                             name = tname.getText().toString().trim();
                             services = service.getSelectedItem().toString().trim();
+                            if(isValid()){
+                                update();
+                            }/*
                             if (TextUtils.isEmpty(date) || TextUtils.isEmpty(time) || TextUtils.isEmpty(name) || TextUtils.isEmpty(services)) {
                                 Toast.makeText(UpdateDeleteAppointment.this, "Please add some data.", Toast.LENGTH_SHORT).show();
                             } else {
                                 update();
-                            }
+                            }*/
                         }
                          catch(Exception e) {
                             // Printing the wrapper exception:
@@ -223,12 +226,12 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
 
                 databaseReference.setValue(appointmentModel);
 
-                Toast.makeText(UpdateDeleteAppointment.this,"data updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateDeleteAppointment.this,"Appointment has been updated!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UpdateDeleteAppointment.this, "Fail to add data " + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateDeleteAppointment.this, "Appointment cannot be updated!" + error, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -278,6 +281,40 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
             }
         },hour,Minute,true);
         mTimePicker.show();
+    }
+
+    private boolean isValid() {
+
+        date_in.setTextInputLayoutFocusedRectEnabled(false);
+        date_in.setError("");
+        time_in.setTextInputLayoutFocusedRectEnabled(false);
+        time_in.setError("");
+        tname.setTextInputLayoutFocusedRectEnabled(false);
+        tname.setError("");
+
+        boolean isValidDate = false,isValidTime = false,isValidName=false,isValid=false;
+        if(TextUtils.isEmpty(date)){
+            date_in.setTextInputLayoutFocusedRectEnabled(true);
+            date_in.setError("Date is Required");
+        }else{
+            date_in.setError(null);
+            isValidDate=true;
+        }if(TextUtils.isEmpty(time)){
+            time_in.setTextInputLayoutFocusedRectEnabled(true);
+            time_in.setError("Time is Required");
+        }else{
+            time_in.setError(null);
+            isValidTime=true;
+        }
+        if(TextUtils.isEmpty(name)){
+            tname.setTextInputLayoutFocusedRectEnabled(true);
+            tname.setError("Customer Name is Required");
+        }else{
+            tname.setError(null);
+            isValidName=true;
+        }
+        isValid = (isValidDate  && isValidTime && isValidName)?true:false;
+        return isValid;
     }
 
 

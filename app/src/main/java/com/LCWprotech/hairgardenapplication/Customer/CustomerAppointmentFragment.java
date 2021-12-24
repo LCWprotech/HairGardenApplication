@@ -48,6 +48,7 @@ import java.util.UUID;
 
 public class CustomerAppointmentFragment extends Fragment {
 
+
     TextInputEditText date_in;
     TextInputEditText time_in;
     TextInputEditText tname;
@@ -64,7 +65,7 @@ public class CustomerAppointmentFragment extends Fragment {
     StorageReference ref;
     AppointmentModel appointmentInfo;
     ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
-    String RandomUID,CusId;
+    String date, time, name, services, RandomUID, CusId;
 
     @Nullable
     @Override
@@ -112,17 +113,14 @@ public class CustomerAppointmentFragment extends Fragment {
             public void onClick(View v) {
 
                 // getting text from our edittext fields.
-                String date = date_in.getText().toString().trim();
-                String time = time_in.getText().toString().trim();
-                String name = tname.getText().toString().trim();
-                String services = service.getSelectedItem().toString().trim();
+                date = date_in.getText().toString().trim();
+                time = time_in.getText().toString().trim();
+                name = tname.getText().toString().trim();
+                services = service.getSelectedItem().toString().trim();
                 RandomUID = UUID.randomUUID().toString();
                 ref = storageReference.child(RandomUID);
                 String CusId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-                if (TextUtils.isEmpty(date) || TextUtils.isEmpty(time) || TextUtils.isEmpty(name) || TextUtils.isEmpty(services)) {
-                    Toast.makeText(getContext(), "Please add some data.", Toast.LENGTH_SHORT).show();
-                } else {
+                if(isValid()){
                     addDatatoFirebase(date,time,name,services,RandomUID,CusId);
                 }
             }
@@ -190,14 +188,13 @@ public class CustomerAppointmentFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                databaseReference.setValue(appointmentInfo);
+                    databaseReference.setValue(appointmentInfo);
 
-                Toast.makeText(getContext(), "data added", Toast.LENGTH_SHORT).show();
-            }
-
+                    Toast.makeText(getContext(), "Appointment has been saved!", Toast.LENGTH_SHORT).show();
+                }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Fail to add data " + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Appointment cannot be saved!" + error, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -222,6 +219,41 @@ public class CustomerAppointmentFragment extends Fragment {
 
             }
         });
+    }
+
+
+    private boolean isValid() {
+
+        date_in.setTextInputLayoutFocusedRectEnabled(false);
+        date_in.setError("");
+        time_in.setTextInputLayoutFocusedRectEnabled(false);
+        time_in.setError("");
+        tname.setTextInputLayoutFocusedRectEnabled(false);
+        tname.setError("");
+
+        boolean isValidDate = false,isValidTime = false,isValidName=false,isValid=false;
+        if(TextUtils.isEmpty(date)){
+            date_in.setTextInputLayoutFocusedRectEnabled(true);
+            date_in.setError("Date is Required");
+        }else{
+            date_in.setError(null);
+            isValidDate=true;
+        }if(TextUtils.isEmpty(time)){
+            time_in.setTextInputLayoutFocusedRectEnabled(true);
+            time_in.setError("Time is Required");
+        }else{
+            time_in.setError(null);
+            isValidTime=true;
+        }
+        if(TextUtils.isEmpty(name)){
+            tname.setTextInputLayoutFocusedRectEnabled(true);
+            tname.setError("Customer Name is Required");
+        }else{
+            tname.setError(null);
+            isValidName=true;
+        }
+        isValid = (isValidDate  && isValidTime && isValidName)?true:false;
+        return isValid;
     }
 
 }

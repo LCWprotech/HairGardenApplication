@@ -13,7 +13,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/time_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,13 +22,13 @@
         app:layout_constraintVertical_bias="0.053">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dateinput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date"
-            android:id="@+id/dateinput"
             android:inputType="text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/time_input"
         android:layout_marginTop="10dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/timeinput"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:hint="Time"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/name"
         android:layout_marginTop="10dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,10 +71,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/cusname"
             android:hint="Customer Name"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,6 +87,7 @@
         android:layout_marginTop="10dp"
         android:text="Services"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.357"

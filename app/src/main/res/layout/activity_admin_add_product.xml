@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/purple"
     tools:context=".Admin.AdminAddProduct">
 
     <TextView
@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:hint="Product Name"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +81,8 @@
             android:layout_height="wrap_content"
             android:hint="Description"
             android:inputType="text"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,8 +104,10 @@
             android:layout_height="wrap_content"
             android:hint="Quantity"
             android:inputType="number"
-            android:textColor="@color/white"
-            android:textSize="18sp"/>
+            android:maxLength="4"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,8 +127,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Price"
-            android:inputType="text"
-            android:textColor="@color/white"
+            android:maxLength="10"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
