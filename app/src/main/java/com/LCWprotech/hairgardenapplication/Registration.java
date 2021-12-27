@@ -119,7 +119,7 @@ public class Registration extends AppCompatActivity {
                                         //hashMap1.put("Password",password);
                                         hashMap1.put("Postcode",pincode);
                                         hashMap1.put("Gender",gender);
-                                        hashMap1.put("Confirm Password",confpassword);
+                                        //hashMap1.put("Confirm Password",confpassword);
                                         hashMap1.put("Address",fulladdress);
 
                                         firebaseDatabase.getInstance().getReference("Customer")
