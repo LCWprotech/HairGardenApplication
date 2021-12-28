@@ -28,8 +28,8 @@ import java.util.List;
 public class cusAppointmentDisplay extends AppCompatActivity {
     TextInputEditText date_in;
     TextInputEditText time_in;
-    TextInputEditText tname;
-    Spinner service;
+    TextInputEditText cusname;
+    TextInputEditText cusservice;
     private Uri mCropimageuri;
     Button Update_dish,Delete_dish;
     String date,time,name,services,serv;
@@ -49,12 +49,13 @@ public class cusAppointmentDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_appointment_display);
+        setTitle("Appointment Details");
         ID = getIntent().getStringExtra("updatedeleteappointment");
         CusID = getIntent().getStringExtra("cusID");
         date_in=(TextInputEditText) findViewById(R.id.dateinput);
         time_in=(TextInputEditText) findViewById(R.id.timeinput);
-        tname = (TextInputEditText) findViewById(R.id.cusname);
-        service=(Spinner) findViewById(R.id.service);
+        cusname = (TextInputEditText) findViewById(R.id.cusname);
+        cusservice = (TextInputEditText) findViewById(R.id.cusservice);
         date_in.setInputType(InputType.TYPE_NULL);
         time_in.setInputType(InputType.TYPE_NULL);
         AppointmentModel appointmentModel = new AppointmentModel();
@@ -73,10 +74,11 @@ public class cusAppointmentDisplay extends AppCompatActivity {
                         String date = appointmentModel.getDate();
                         String time = appointmentModel.getTime();
                         String name = appointmentModel.getName();
+                        String service = appointmentModel.getService();
                         date_in.setText(date);
                         time_in.setText(time);
-                        tname.setText(name);
-
+                        cusname.setText(name);
+                        cusservice.setText(service);
                     }
 
                     @Override

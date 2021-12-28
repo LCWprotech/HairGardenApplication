@@ -42,7 +42,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public void onBindViewHolder(@NonNull AppointmentAdapter.ViewHolder holder, int position) {
 
         final AppointmentModel appointmentModel = AppointmentModelList.get(position);
-        holder.name.setText(appointmentModel.getName());;
+        holder.name.setText(appointmentModel.getName());
+        holder.date.setText(appointmentModel.getDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,11 +62,12 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
+        TextView name, date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.appointment_name);
+            date = itemView.findViewById(R.id.appointment_date);
         }
     }
     public Filter getFilter() {

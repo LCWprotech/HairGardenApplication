@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date"
+            android:enabled="false"
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
@@ -51,6 +52,7 @@
             android:id="@+id/timeinput"
             android:textColor="@color/black"
             android:hint="Time"
+            android:enabled="false"
             android:textColorHint="@color/black"
             android:inputType="text"/>
 
@@ -74,54 +76,35 @@
             android:textColor="@color/black"
             android:id="@+id/cusname"
             android:hint="Customer Name"
+            android:enabled="false"
             android:textColorHint="@color/black"
             android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="215dp"
-        android:layout_height="25dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/service"
         android:layout_marginTop="10dp"
-        android:text="Services"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/service"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.053"
+        app:layout_constraintHorizontal_bias="0.5">
 
-    <Spinner
-        android:id="@+id/service"
-        android:layout_width="276dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="248dp"
-        android:entries="@array/Services"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt1"
-        app:layout_constraintVertical_bias="0.053" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:id="@+id/cusservice"
+            android:hint="Service"
+            android:enabled="false"
+            android:textColorHint="@color/black"
+            android:inputType="text"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/service"
-        app:layout_constraintVertical_bias="0.33"
-        app:layout_constraintHorizontal_bias="1.0">
-
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
