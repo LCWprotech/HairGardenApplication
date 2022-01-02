@@ -31,7 +31,6 @@ import java.util.List;
 
 public class SearchAppointment extends AppCompatActivity {
     TextInputEditText date_in;
-    Button btnSearch;
     RecyclerView recyclerView;
     FirebaseFirestore db;
     private AppointmentAdapter adapter;
@@ -45,7 +44,6 @@ public class SearchAppointment extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchAppointment.this));
         date_in = (TextInputEditText) findViewById(R.id.date_input);
-        btnSearch = (Button) findViewById(R.id.btnSearch);
         adminAppointment();
         date_in.setOnClickListener(new View.OnClickListener() {
             @Override
