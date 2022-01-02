@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.Service;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -62,6 +64,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
     DatabaseReference dataa;
     AppointmentModel appointmentModel = new AppointmentModel();
     private List<AppointmentModel> displayedList;
+    private String[] arraySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,10 +170,11 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                                 String date = appointmentModel.getDate();
                                 String time = appointmentModel.getTime();
                                 String name = appointmentModel.getName();
+                                String services = appointmentModel.getService();
                                 date_in.setText(date);
                                 time_in.setText(time);
                                 tname.setText(name);
-
+                                setSpinnerValue(services);
                     }
 
                     @Override
@@ -186,7 +190,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
             }
         });
     }
-    private static final String HAIR_CUT = "Hari Cut";
+    private static final String HAIR_CUT = "Hair Cut";
     private static final String HAIR_WASH= "Hair Wash";
     private static final String HAIR_DYE = "Hair Dye";
     private static final String HAIR_TREATMENT = "Hair Treatment";
@@ -316,6 +320,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
         isValid = (isValidDate  && isValidTime && isValidName)?true:false;
         return isValid;
     }
+
 
 
 }

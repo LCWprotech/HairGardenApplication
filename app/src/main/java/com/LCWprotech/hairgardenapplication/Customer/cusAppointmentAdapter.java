@@ -45,7 +45,8 @@ public class cusAppointmentAdapter extends RecyclerView.Adapter<cusAppointmentAd
     public void onBindViewHolder(@NonNull cusAppointmentAdapter.ViewHolder holder, int position) {
 
         final AppointmentModel appointmentModel = AppointmentModelList.get(position);
-        holder.name.setText(appointmentModel.getName());;
+        holder.name.setText(appointmentModel.getName());
+        holder.date.setText(appointmentModel.getDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,10 +66,12 @@ public class cusAppointmentAdapter extends RecyclerView.Adapter<cusAppointmentAd
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name;
+        TextView date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.appointment_name);
+            date = itemView.findViewById(R.id.appointment_date);
         }
     }
 }
