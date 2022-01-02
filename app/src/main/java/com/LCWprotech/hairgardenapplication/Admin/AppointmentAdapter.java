@@ -70,42 +70,8 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             date = itemView.findViewById(R.id.appointment_date);
         }
     }
-    public Filter getFilter() {
-        Filter filter = new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-
-                FilterResults filterResults = new FilterResults();
-                if(constraint == null || constraint.length() == 0){
-                    filterResults.count = AppointmentModelList.size();
-                    filterResults.values = AppointmentModelList;
-
-                }else{
-                    List<AppointmentModel> resultsModel = new ArrayList<>();
-                    String searchStr = constraint.toString().toLowerCase();
-
-                    for(AppointmentModel itemsModel:AppointmentModelList){
-                        if(itemsModel.getDate().contains(searchStr)){
-                            resultsModel.add(itemsModel);
-                        }
-                        filterResults.count = resultsModel.size();
-                        filterResults.values = resultsModel;
-                    }
-
-
-                }
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-                filteredList = (List<AppointmentModel>) results.values;
-                notifyDataSetChanged();
-
-            }
-        };
-        return filter;
+    public void filterList(List<AppointmentModel> filteredList) {
+        this.AppointmentModelList=filteredList;
+        notifyDataSetChanged();
     }
 }

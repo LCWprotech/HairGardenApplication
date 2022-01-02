@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
         <activity
+            android:name=".Admin.SearchAppointment"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Customer.cusAppointmentDisplay"
             android:parentActivityName=".Login"
             android:screenOrientation="portrait" />
