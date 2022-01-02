@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HairGardenApplication">
         <activity
+            android:name=".Staff.StaffSearchAppointment"
+            android:parentActivityName=".Login"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Admin.SearchAppointment"
             android:parentActivityName=".Login"
             android:screenOrientation="portrait" /> <!-- Actually back to Admin Hairstyle Fragment -->

@@ -2,6 +2,7 @@ package com.LCWprotech.hairgardenapplication.Staff;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,12 +15,14 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.LCWprotech.hairgardenapplication.Admin.AppointmentAdapter;
 import com.LCWprotech.hairgardenapplication.Admin.AppointmentModel;
+import com.LCWprotech.hairgardenapplication.Admin.SearchAppointment;
 import com.LCWprotech.hairgardenapplication.Customer.cusAppointmentAdapter;
 import com.LCWprotech.hairgardenapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -37,9 +40,8 @@ import java.util.Calendar;
 public class StaffAppointmentFragment extends Fragment {
 
     RecyclerView recyclerView;
-    TextInputEditText date_in;
-    TextInputEditText time_in;
     FirebaseFirestore db;
+    Button btnSearch;
     private cusAppointmentAdapter adapter;
     ArrayList<AppointmentModel> AppointList = new ArrayList<>();;
     DatabaseReference reference;
@@ -50,69 +52,22 @@ public class StaffAppointmentFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_staff_appointment,null);
         getActivity().setTitle("Staff Appointment");
-        date_in=v.findViewById(R.id.date_input);
-        time_in=v.findViewById(R.id.time_input);
         recyclerView = v.findViewById(R.id.LvAppointment);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         StaffAppointment();
-
-        date_in.setInputType(InputType.TYPE_NULL);
-        time_in.setInputType(InputType.TYPE_NULL);
-
-        date_in.setOnClickListener(new View.OnClickListener() {
+        btnSearch = v.findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateDialog(date_in);
+                Intent intent = new Intent(getContext(), StaffSearchAppointment.class);
+                startActivity(intent);
             }
         });
-        time_in.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimeDialog(time_in);
-            }
-        });
+
         return v;
     }
-    private void showDateDialog(final EditText date_in) {
-        final Calendar mcurrentDate = Calendar.getInstance();
-        int mYear = mcurrentDate.get(Calendar.YEAR);
-        int mMonth = mcurrentDate.get(Calendar.MONTH);
-        int mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog mDatePicker = new DatePickerDialog(
-                getContext(), new DatePickerDialog.OnDateSetListener() {
-            public void onDateSet(DatePicker datepicker,
-                                  int selectedyear, int selectedmonth,
-                                  int selectedday) {
 
-                mcurrentDate.set(Calendar.YEAR, selectedyear);
-                mcurrentDate.set(Calendar.MONTH, selectedmonth);
-                mcurrentDate.set(Calendar.DAY_OF_MONTH,
-                        selectedday);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
-
-                date_in.setText(simpleDateFormat.format(mcurrentDate
-                        .getTime()));
-            }
-        }, mYear, mMonth, mDay);
-        mDatePicker.show();
-
-    }
-    private void showTimeDialog(final EditText time_in) {
-        final Calendar calendar=Calendar.getInstance();
-
-        TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                calendar.set(Calendar.MINUTE,minute);
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
-                time_in.setText(simpleDateFormat.format(calendar.getTime()));
-            }
-        };
-
-        new TimePickerDialog(getContext(),timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
-    }
     private void StaffAppointment() {
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("AppointmentInfo");

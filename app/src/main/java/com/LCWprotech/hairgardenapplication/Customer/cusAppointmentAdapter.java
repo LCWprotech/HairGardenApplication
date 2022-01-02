@@ -74,5 +74,9 @@ public class cusAppointmentAdapter extends RecyclerView.Adapter<cusAppointmentAd
             date = itemView.findViewById(R.id.appointment_date);
         }
     }
+    public void filterList(List<AppointmentModel> filteredList) {
+        this.AppointmentModelList=filteredList;
+        notifyDataSetChanged();
+    }
 }
 
