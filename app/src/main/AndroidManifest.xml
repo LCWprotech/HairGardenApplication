@@ -20,11 +20,11 @@
         <activity
             android:name=".Admin.SearchAppointment"
             android:parentActivityName=".Login"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /> <!-- Actually back to Admin Hairstyle Fragment -->
         <activity
             android:name=".Customer.cusAppointmentDisplay"
             android:parentActivityName=".Login"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /> <!-- Actually back to Cutomer Hairstyle Fragment -->
         <activity
             android:name=".Customer.FemaleHair6"
             android:parentActivityName=".Login"
@@ -93,7 +93,7 @@
         <activity
             android:name=".Admin.UpdateDeleteAppointment"
             android:parentActivityName=".Login"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /> <!-- Actually back to Admin Appointment Fragment -->
         <activity
             android:name=".Admin.UpdateDeleteProduct"
             android:parentActivityName=".Login"
