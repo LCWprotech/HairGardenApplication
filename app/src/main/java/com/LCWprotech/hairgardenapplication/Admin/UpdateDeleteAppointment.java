@@ -29,6 +29,8 @@ import android.widget.Toast;
 import com.LCWprotech.hairgardenapplication.Customer.AppointmentInfo;
 import com.LCWprotech.hairgardenapplication.R;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -113,12 +115,7 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
                             services = service.getSelectedItem().toString().trim();
                             if(isValid()){
                                 update();
-                            }/*
-                            if (TextUtils.isEmpty(date) || TextUtils.isEmpty(time) || TextUtils.isEmpty(name) || TextUtils.isEmpty(services)) {
-                                Toast.makeText(UpdateDeleteAppointment.this, "Please add some data.", Toast.LENGTH_SHORT).show();
-                            } else {
-                                update();
-                            }*/
+                            }
                         }
                          catch(Exception e) {
                             // Printing the wrapper exception:
@@ -223,21 +220,15 @@ public class UpdateDeleteAppointment extends AppCompatActivity {
         appointmentModel.setService(services);
         appointmentModel.setRandomUID(ID);
         appointmentModel.setCusId(CusID);
-        databaseReference = firebaseDatabase.getInstance().getReference("AppointmentInfo").child(CusID).child(ID);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                databaseReference.setValue(appointmentModel);
-
-                Toast.makeText(UpdateDeleteAppointment.this,"Appointment has been updated!", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UpdateDeleteAppointment.this, "Appointment cannot be updated!" + error, Toast.LENGTH_SHORT).show();
-            }
-        });
+        firebaseDatabase.getInstance().getReference("AppointmentInfo").child(CusID).child(ID)
+                .setValue(appointmentModel)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        final Toast t = Toast.makeText(UpdateDeleteAppointment.this, "Appointment has been updated!", Toast.LENGTH_SHORT);
+                        t.show();
+                    }
+                });
     }
     private void showDateDialog(final TextInputEditText date_in) {
         final Calendar mcurrentDate = Calendar.getInstance();
